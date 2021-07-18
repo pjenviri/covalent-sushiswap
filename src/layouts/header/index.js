@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { HEALTH_DATA, ECOSYSTEM_DATA, POOLS_DATA, TOKENS_DATA } from '../../redux/types';
 import { Badge, Nav, NavItem } from 'reactstrap';
 import _ from 'lodash';
 import numeral from 'numeral';
@@ -10,13 +11,13 @@ import { routes } from '../../routes';
 // header component
 const Header = props => {
   // health data from redux
-  const healthData = useSelector(content => content.data.health_data);
+  const healthData = useSelector(content => content.data[HEALTH_DATA]);
   // ecosystem data from redux
-  const ecosystemData = useSelector(content => content.data.ecosystem_data);
+  const ecosystemData = useSelector(content => content.data[ECOSYSTEM_DATA]);
   // pools data from redux
-  const poolsData = useSelector(content => content.data.pools_data);
+  const poolsData = useSelector(content => content.data[POOLS_DATA]);
   // token data from redux
-  const tokensData = useSelector(content => content.data.tokens_data);
+  const tokensData = useSelector(content => content.data[TOKENS_DATA]);
 
   // responsive width
   const useWindowSize = () => {

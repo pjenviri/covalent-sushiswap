@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ECOSYSTEM_DATA, POOLS_DATA, TOKENS_DATA } from '../../redux/types';
 import { numberOptimizeDecimal } from '../../utils';
 import { Row, Col, Card, CardHeader, CardTitle, CardBody, Badge, ButtonGroup, Button, Input, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import _ from 'lodash';
@@ -18,11 +19,11 @@ import Loader from 'react-loader-spinner';
 // dashboard component
 const Dashboard = props => {
   // ecosystem data from redux
-  const ecosystemData = useSelector(content => content.data.ecosystem_data);
+  const ecosystemData = useSelector(content => content.data[ECOSYSTEM_DATA]);
   // pools data from redux
-  const poolsData = useSelector(content => content.data.pools_data);
+  const poolsData = useSelector(content => content.data[POOLS_DATA]);
   // token data from redux
-  const tokensData = useSelector(content => content.data.tokens_data);
+  const tokensData = useSelector(content => content.data[TOKENS_DATA]);
 
   // list of chart duration
   const timeRanges = ['7d', '30d'];

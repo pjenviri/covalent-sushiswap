@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { POOLS_DATA, TOKENS_DATA } from '../../redux/types';
 import { numberOptimizeDecimal } from '../../utils';
 import { Row, Col, Button, Input, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import _ from 'lodash';
@@ -11,9 +12,9 @@ import Loader from 'react-loader-spinner';
 
 const Tokens = props => {
   // pools data from redux
-  const poolsData = useSelector(content => content.data.pools_data);
+  const poolsData = useSelector(content => content.data[POOLS_DATA]);
   // tokens data from redux
-  const tokensData = useSelector(content => content.data.tokens_data);
+  const tokensData = useSelector(content => content.data[TOKENS_DATA]);
 
   // list of num row per page
   const perPageSizes = [5, 10, 25, 100];
